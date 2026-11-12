@@ -1,0 +1,27 @@
+TREINADOR RETRÔ — APP INSTALÁVEL
+
+1) COLOCAR NO AR (uma vez só)
+   - No computador, abra https://app.netlify.com/drop e faça o cadastro gratuito.
+   - Arraste a PASTA "treinador-retro" inteira para a página.
+   - Em alguns segundos aparece um link (algo como https://nome-aleatorio.netlify.app).
+     Esse é o endereço do seu app. Mande para quem quiser.
+   - Dica: no painel do Netlify dá para trocar o nome do site, por exemplo para
+     treinador-retro-saad.netlify.app.
+
+2) INSTALAR
+   - Android (Chrome): abra o link > botão "Instalar app" ou menu ⋮ > "Instalar app".
+   - iPhone (Safari): abra o link > botão Compartilhar > "Adicionar à Tela de Início".
+   - Computador (Chrome ou Edge): abra o link > ícone de instalar na barra de endereço,
+     ou o botão "Instalar app" no canto da tela.
+
+3) USAR
+   - O app abre em tela cheia, com ícone próprio, e funciona sem internet depois
+     da primeira abertura.
+   - As carreiras ficam salvas no aparelho. Para levar uma carreira de outro lugar
+     (link antigo, arquivo .html, outro celular), use 💾 Exportar lá e 📥 Importar
+     carreira aqui.
+
+4) ATUALIZAR
+   - Quando receber uma versão nova, arraste a pasta nova no mesmo site do Netlify
+     (aba "Deploys"). Quem já instalou recebe a atualização ao abrir o app
+     (às vezes é preciso abrir duas vezes).

@@ -1819,7 +1819,10 @@ function rClub(){const u=club(S.user);let th=null;try{th=localStorage.getItem(TK
 applyTheme();render();
 </script>
 <script>
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')r.update()})}).catch(()=>{});
+  let _rl=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(_rl||LIVE)return;_rl=true;location.reload()});
+}
 let _inst=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();_inst=e;const b=document.getElementById('instBtn');if(b)b.style.display='block'});
 window.addEventListener('appinstalled',()=>{const b=document.getElementById('instBtn');if(b)b.style.display='none'});

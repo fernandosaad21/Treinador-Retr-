@@ -1319,8 +1319,14 @@ function nick(p,c){c=c||S.clubs.find(k=>k.pl.includes(p));if(!c)return'';const b
   if(mi>=5)return'Vidraça';
   if(p.inj>0&&mi>=3)return'Bichado';
   if(p.p==='A'&&p.s>=base+10&&pj>=8&&g/pj<0.15)return'Caneleiro';
-  if(p.p!=='G'&&pj>=10&&!yy&&!rr)return'Cordeirinho';
-  if(p.a<=20&&p.s>=base+8)return'Garoto prodígio';
+  {const best=pos=>c.pl.filter(q=>!pos||q.p===pos).reduce((b,q)=>!b||q.s>b.s?q:b,null);
+    if(best()===p&&p.s>=base+8)return'Craque do time';
+    if(p.a<=20&&p.s>=base+8)return'Garoto prodígio';
+    if(p.p==='D'&&best('D')===p&&p.s>=base)return'Xerife';
+    if(p.p==='M'&&best('M')===p&&p.s>=base)return'Maestro';
+    if(p.p==='G'&&best('G')===p&&p.s>=base+4)return'Goleirão'}
+  if(pj>=10&&yy>=6&&!rr)return'Raçudo';
+  if(p.p!=='G'&&pj>=6&&!yy&&!rr)return'Cordeirinho';
   if(p.a>=35)return'Vovô';
   if(p.a>=33)return'Veterano';
   if(p.s<=base-12)return'Pé-de-chinelo';
@@ -1611,7 +1617,7 @@ function rStart(){$('#nav').style.display='none';$('#top').innerHTML=`<div class
     <p><b>Partidas.</b> Todos os jogos da rodada correm ao mesmo tempo, minuto a minuto. No intervalo você pode fazer até 3 trocas, e tocar num time mostra o plantel dele. O resultado depende da força dos titulares, do esquema tático, do mando de campo e de uma boa dose de sorte.</p>
     <p><b>Força.</b> Quem sobe de divisão ganha +5 de força no elenco, e quem cai perde 5. A mesma regra vale nas transferências entre divisões.</p>
     <p><b>Elenco.</b> Contratações derrubam o entrosamento, que volta a subir com os jogos. Mais de 4 estrelas no elenco e craques esquecidos no banco pesam no vestiário. Jogar sem descanso cansa (🔋), então rode o elenco. Jogador fora de posição rende menos, e os times menores jogam a partida da vida contra o líder e o campeão.</p>
-    <p><b>Apelidos.</b> Os jogadores ganham apelidos conforme o perfil e o desempenho na temporada, como Matador, Artilheiro, Talismã, Paredão, Sarrafeiro, Açougueiro, Vidraça, Caneleiro, Cordeirinho, Garoto prodígio, Vovô e Pé-de-chinelo.</p>
+    <p><b>Apelidos.</b> Os jogadores ganham apelidos conforme o perfil e o desempenho na temporada, como Matador, Artilheiro, Talismã, Paredão, Craque do time, Xerife, Maestro, Goleirão, Raçudo, Sarrafeiro, Açougueiro, Vidraça, Caneleiro, Cordeirinho, Garoto prodígio, Vovô e Pé-de-chinelo.</p>
     <p><b>Cartões e lesões.</b> 3 amarelos dão 1 jogo de suspensão. O segundo amarelo no mesmo jogo dá 1 jogo, e o vermelho direto, 2. Lesões tiram o jogador por alguns jogos. Desfalques são substituídos automaticamente pelo melhor disponível.</p>
     <p><b>Finanças.</b> O caixa inicial depende da divisão: €150 mi na 1ª, €100 mi na 2ª, €75 mi na 3ª e €50 mi na 4ª. Entram bilheteria, TV, patrocínio, lojas e prêmios. Saem salários, viagens, manutenção do estádio e base.</p>
     <p><b>Torcida e diretoria.</b> A torcida reage aos resultados. A diretoria cobra a meta da temporada. Antes de uma demissão sempre vêm um aviso e um ultimato, e demitido, você recebe propostas de outros clubes.</p>
@@ -1820,6 +1826,8 @@ window.addEventListener('appinstalled',()=>{const b=document.getElementById('ins
 function instApp(){if(!_inst)return;_inst.prompt();_inst.userChoice.finally(()=>{_inst=null;document.getElementById('instBtn').style.display='none'})}
 </script>
 <button id="instBtn" onclick="instApp()" style="display:none;position:fixed;right:12px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:70;font:bold 14px Tahoma,Verdana,sans-serif;padding:10px 14px;background:#c3c3c3;color:#000;border:2px solid;border-color:#fff #000 #000 #fff;box-shadow:2px 2px 0 #000;cursor:pointer">📲 Instalar app</button>
+
+</html>
 
 </html>
 
